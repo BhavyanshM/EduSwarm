@@ -14,14 +14,14 @@ while True:
 	global frame
 	ret, frame = cap.read()
 
-	whiteLower = (205, 205, 210)
-	whiteUpper = (210, 215, 230)
+	greenLower = (135, 175, 115)
+	greenUpper = (175, 225, 155)
 
 	# print(frame.shape)
 	# frame = frame[100:400, 100:600]
 	cv2.imshow('frame', frame)
 	# hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-	mask = cv2.inRange(frame, whiteLower, whiteUpper)
+	mask = cv2.inRange(frame, greenLower, greenUpper)
 	cv2.imshow('mask', mask)
 	cv2.setMouseCallback('frame', click_pos)
 
