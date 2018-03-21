@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture(0);
+cap = cv2.VideoCapture(1);
 
 def click_pos(event, x, y, flags, param):
 	global mouseX , mouseY
@@ -14,11 +14,11 @@ while True:
 	global frame
 	ret, frame = cap.read()
 
-	greenLower = (135, 175, 115)
-	greenUpper = (175, 225, 155)
+	greenLower = (145, 185, 125)
+	greenUpper = (185, 225, 160)
 
 	# print(frame.shape)
-	# frame = frame[100:400, 100:600]
+	frame = frame[100:400, 100:600]
 	cv2.imshow('frame', frame)
 	# hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 	mask = cv2.inRange(frame, greenLower, greenUpper)
