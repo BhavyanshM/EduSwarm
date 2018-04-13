@@ -1,32 +1,34 @@
 import cv2
+import imutils
 import numpy as np
 
-cap = cv2.VideoCapture(1);
-
+#func for getting color of click pos
 def click_pos(event, x, y, flags, param):
 	global mouseX , mouseY
 	if event == cv2.EVENT_LBUTTONDOWN:
 		mouseX, mouseY = x, y
 		print(frame[y,x])
 
+#The camera
+cap = cv2.VideoCapture(1);
+
 while True:
 	cap.set(cv2.CAP_PROP_AUTOFOCUS, 0)
 	global frame
 	ret, frame = cap.read()
-
-	greenLower = (135, 180, 140)
-	greenUpper = (160, 200, 150)
-
-	blueLower = (175, 75, 25)
-	blueUpper = (290, 90, 40)
-
-	# print(frame.shape)
 	frame = frame[100:400, 100:600]
 	cv2.imshow('frame', frame)
 	hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+	greenLower = (140, 185, 120)
+	greenUpper = (150, 205, 145)
 	maskG = cv2.inRange(hsv, greenLower, greenUpper)
+
+	blueLower = (175, 75, 25)
+	blueUpper = (290, 90, 40)
 	maskB = cv2.inRange(frame, blueLower, blueUpper)
-	mask = maskG + maskB
+	
+	mask = maskB + maskG
 	cv2.imshow('mask', mask)
 	
 

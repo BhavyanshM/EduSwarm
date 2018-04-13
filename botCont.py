@@ -20,10 +20,18 @@ def right(i):
 	move(s)
 
 def move(s):
-
 	original = "commands/" + s
-	#original = "C:\\Users\\DSPOTHP116\\Documents\\EduSwarm\\EduSwarm\\commands\\forward.hex"
 	microbit = "F:\\" + s
 	shutil.copy(original, microbit)
 
-forward(0)
+while True:
+	ip = input("Forward(f) Left(l) Right(r) Quit(q)")
+	print(ip)
+	if ip == 'q':
+		break
+	if ip == 'f':
+		forward(0)
+	if ip == 'l':
+		left(0)
+	if ip == 'r':
+		right(0)
