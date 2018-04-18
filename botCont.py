@@ -35,3 +35,21 @@ while True:
 		left(0)
 	if ip == 'r':
 		right(0)
+	if ip == 'f1':
+		forward(1)
+	if ip == 'l1':
+		left(1)
+	if ip == 'r1':
+		right(1)
+	if ip == 'f2':
+		forward(2)
+	if ip == 'l2':
+		left(2)
+	if ip == 'r2':
+		right(2)
+	if ip == 'f3':
+		forward(3)
+	if ip == 'l3':
+		left(3)
+	if ip == 'r3':
+		right(3)
